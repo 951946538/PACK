@@ -1,0 +1,15 @@
+
+=== Module Tests & Intégration
+Dans le cadre du développement de notre projet PACT, nous avons réalisé des tests et des évaluations sur différents modules. Voici les résultats obtenus et les observations importantes :
+
+Algorithme de classification :
+L'algorithme de classification présente un taux d'erreur de 40% lors de la première évaluation. Cependant, il convient de noter que seule une seule itération d'entraînement sur l'ensemble de données a été effectuée (600 minutes au total). Des tests supplémentaires sont en cours pour confirmer ces résultats. Il est important de souligner que cette classification concerne 21 styles de peinture différents, qui sont ensuite regroupés en deux catégories : abstrait et réaliste. Ainsi, des erreurs dans la distinction entre des styles très similaires (par exemple, High Renaissance et Mid Renaissance) peuvent être tolérées, car elles n'ont pas d'impact significatif sur l'objectif final du projet.
+
+Algorithme de mise en profondeur :
+L'évaluation de l'algorithme de mise en profondeur est plus complexe, car nous ne disposons pas d'un ensemble de données dédié pour l'entraîner. Nous utilisons plutôt un modèle de prédiction qui est adapté à des images de la vie réelle. Cependant, pour la modélisation 3D d'œuvres abstraites, il s'est avéré que cet algorithme ne produit pas des résultats satisfaisants. Nous sommes confrontés à la difficulté de trouver un ensemble de données adéquat pour les modèles 3D de peintures abstraites, ce qui limite notre capacité à évaluer de manière approfondie la qualité de cet algorithme.
+
+SLIC (Superpixel Linear Iterative Clustering) :
+L'utilisation de SLIC repose principalement sur une approche empirique pour déterminer les meilleurs paramètres et utiliser la bibliothèque de manière efficace. Étant donné que la sortie de SLIC est une représentation plutôt qu'une mesure concrète et comparable, il est difficile d'effectuer des tests formels sur cet aspect du projet. Cependant, nous avons réussi à élaborer une approche qui semble fonctionner pour nos besoins spécifiques.
+
+En conclusion, les résultats des tests et des évaluations mettent en évidence certains défis liés à l'utilisation d'algorithmes de classification, de mise en profondeur et de bibliothèques spécifiques à notre projet. Nous sommes conscients des limites et des contraintes inhérentes à notre domaine d'application, telles que la disponibilité de données d'entraînement adéquates pour certains aspects. Malgré ces défis, nous continuons à affiner nos approches et à chercher des solutions pour atteindre nos objectifs de manière efficace.
+

@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<style media="screen">canvas{border:1px solid #ccc}</style>
+		<title>VisuaTouch Controller</title>
+		<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="jquery-ui.theme.min.css">
+		<link rel="stylesheet" href="jquery-ui.structure.min.css">
+
+		<link href="pixel-picker.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="canvas.css">
+		<link rel="stylesheet" href="visuatouch.css">
+		<link rel="stylesheet" href="colorPick.css">
+		<!-- OPTIONAL DARK THEME -->
+		<link rel="stylesheet" href="colorPick.dark.theme.css">
+
+	</head>
+
+	<body>
+		
+
+		<!-- ======================================================================================= -->
+		<!--                                     fullscreen MultitouchPad                            -->
+		<!-- ======================================================================================= -->
+		<div class="canvas_container" style=";">
+			<div class="drawingPart">
+				<canvas id="drawArea" ></canvas>
+			</div>
+			<div class="menuButtonArea">
+				<button  id="colorChoiceMenu_button"}>Color</button>
+				<button  id="fulloptionMenu_button"}>Menu</button>
+			</div>
+		</div>
+
+
+		<!-- ======================================================================================= -->
+		<!--                                     fullscreen MultitouchPad                            -->
+		<!-- ======================================================================================= -->
+		<div id="colorPickerHolder" style="display:none">
+	        <div class="ColorPicker" id="RoundColorPicker" ></div>
+    	</div>
+
+<!-- 		<div class="color_choice_menu" style="display:none;">
+			<div id="colorPart">
+			</div>
+		</div> -->
+
+
+		<!-- ======================================================================================= -->
+		<!--                                     Classic control Panel                               -->
+		<!-- ======================================================================================= -->
+		<div class="container" style="display:none;">
+			<h1>VisuaTouch Controller</h1>
+			<h2 id="current_device_name"></h2>
+
+			<!-- ======================================================================================= -->
+			<!--                                            Panel                                        -->
+			<!-- ======================================================================================= -->
+			<h3>Control panel</h3>
+			<div id="testId" class="control_panel">
+				
+				<button class="random_pixel_button"  onclick="randomColoredClickedJs(1, 1);"}></button>
+
+				<button class="random_colored_button" onclick="randomColoredClickedJs(40, 0);"}></button>
+
+				<button class="random_rainbow_button" onclick="randomColoredClickedJs(40, 1);"}></button>
+
+				<button class="LR_button" id="0" onclick="sendPatern(this);"}></button>
+
+				<button class="RL_button" id="1"  onclick="sendPatern(this);"}></button>
+
+				<button class="TB_button" id="2" onclick="sendPatern(this)"}></button>
+
+				<button class="BT_button" id="3" onclick="sendPatern(this)"}></button>
+
+				<button class="ME_button" id="4" onclick="sendPatern(this)"}></button>
+				
+				<button class="EM_button" id="5" onclick="sendPatern(this)"}></button>
+				
+				<button class="SNAKE_LR_button" id="6" onclick="sendPatern(this);"}></button>
+<!-- 				<button class="SNAKE_LR_button" id="7" onclick="sendPatern(this);"}></button>
+				<button class="SNAKE_LR_button" id="8" onclick="sendPatern(this);"}></button>
+				<button class="SNAKE_LR_button" id="9" onclick="sendPatern(this);"}></button> -->
+				
+				<div class="color_choice">
+					<p>Color:</p>
+					<button class="jscolor {valueElement:null,value:'66ccff'}" id="colorButton"></button>
+				</div>
+
+			</div>
+			
+
+			<!-- ======================================================================================= -->
+			<!--                                            Panel                                        -->
+			<!-- ======================================================================================= -->
+			<h3 style="margin-top:20px;">Presets panel</h3>
+			<div class="presets_panel">
+
+				<!-- ======================= SPEED CONTROL ================================== -->
+				<span>speed:</span>
+				<button class="LSP_button" id="0"  onclick="setPaternSpeed(this);"}>Low</button>
+				<button class="MSP_button" id="1"  onclick="setPaternSpeed(this);"}>Med.</button>
+				<button class="HSP_button" id="2"  onclick="setPaternSpeed(this);"}>High</button>
+
+
+				<!-- ======================= INTENSITY CONTROL ================================== -->
+				<span style="padding-left:10px;">Intensity:</span>
+				<button class="L_INT_button" id="0"  onclick="setPresetIntensity(this);"}>Low</button>
+				<button class="M_INT_button" id="1"  onclick="setPresetIntensity(this);"}>Med.</button>
+				<button class="H_INT_button" id="2"  onclick="setPresetIntensity(this);"}>High</button>
+
+			</div>
+			
+
+
+			<!-- ======================================================================================= -->
+			<!--                                            Hand                                        -->
+			<!-- ======================================================================================= -->
+			<div class="hand_background">
+			
+				<div class="pixel-picker-container">
+
+					  <!-- This is a row -->
+					  <div class="pixel-picker-row">
+						<!-- These are cells -->
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+					  </div>
+					  <div class="pixel-picker-row">
+						<!-- These are cells -->
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+					  </div>
+					  <div class="pixel-picker-row">
+						<!-- These are cells -->
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+					  </div>
+					  <div class="pixel-picker-row">
+						<!-- These are cells -->
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+					  </div>
+					  <div class="pixel-picker-row">
+						<!-- These are cells -->
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+					  </div>
+					  <div class="pixel-picker-row">
+						<!-- These are cells -->
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+						<div class="pixel-picker-cell"></div>
+					  </div>
+				  
+				</div>
+			</div>
+  			
+  
+  			<!-- ======================================================================================= -->
+			<!--                                    Option  Panel                                        -->
+			<!-- ======================================================================================= -->
+ 			<h3>option panel</h3>
+  			<div class="admin_panel">
+				<!--Vibration level: <span id="vibration_intensity">50</span>%<div id="vibration_slider"></div>-->
+				Leds brightness level: <span id="leds_brigthness">1000</span><div id="leds_brigthness_slider"></div>
+				Servo intensity level: <span id="servo_intensity">300</span><div id="servo_intensity_slider"></div>
+				Patern duration: <span id="patern_duration">600</span>ms<div id="patern_duration_slider"></div>
+				Patern delay: <span id="patern_delay">100</span>ms<div id="patern_delay_slider"></div>
+				
+				<!-- <select id="device_adress" onchange="setDeviceAdressClicked(this)"> -->
+					<!-- <option value="visuatouch1.local">visuatouch1.local</option> -->
+					<!-- <option value="visuatouch2.local">visuatouch2.local</option> -->
+				<!-- </select> -->
+
+			</div>
+			
+			<!-- ======================================================================================= -->
+			<!--                                  Conection panel                                        -->
+			<!-- ======================================================================================= -->
+			<h3 style="margin-top:20px;">Connection panel</h3>
+			<div class="control_panel">
+
+			    <p><b>Message from Device:</b> <span id="mess_from_ESP"></span></p>
+			    <p><b>Message from Log server:</b> <span id="mess_from_logserver">...</span></p>
+				<br/>
+				
+
+				<span style="padding-left:10px;">Device:</span>
+				<button class="dev1_button" id="1"  onclick="connectToDevice(this);"}>#1</button>
+				<button class="dev2_button" id="2"  onclick="connectToDevice(this);"}>#2</button>
+
+
+			</div>
+
+
+			<!-- ======================================================================================= -->
+			<!--                                     Admin  Panel                                        -->
+			<!-- ======================================================================================= -->
+			<h3>Admin panel</h3>
+  			<div class="admin_panel">
+
+				<input id="device_adress" type="text" value="xxxxxxxxxxx" style="margin-top:10px;">
+				<span>Address:</span>
+				<button onclick="setDeviceAdressClicked()"}>Connect</button>
+				<br/>
+
+				<form id="get_log_on_server_button" method="get" action="xxxxxxxxxxxx" style="margin-top:10px;">
+				   <button type="submit">Get logs</button>
+				</form>
+				
+				<button onclick="resetLogOnServerClicked();" style="margin-top:10px;"}>Reset log file</button>
+				
+				<br/>
+				<button id="fullscreenPad_button" style="margin-top:10px;padding:10px;height:50px;"}>FullScreenPad</button>
+
+				<!-- <button onclick="getConnectedDeviceId();" style="margin-top:10px;"}>getId</button> -->
+				<!--
+				<label for="saveLogToggleButton">Save log:</label>
+				<input type="checkbox" id="saveLogToggleButton" onclick="setLogState()" checked/>
+				
+				<br/>
+				<form id="get_log_button" method="get" action="logs.csv">
+				   <button type="submit">Get logs</button>
+				</form>
+
+				<br/>
+				-->
+			</div>
+			
+
+			<!-- ======================================================================================= -->
+			<!--                                  Calibration Panel                                       -->
+			<!-- ======================================================================================= -->
+			<h3 style="margin-top:20px;visibility:hidden;">Calibration panel</h3>
+			<div style="margin-bottom:50px;visibility:hidden;" class="control_panel">
+
+				<h4>Servo 0:</h4>
+				<span id="servo0_values"></span><div id="servo0_slider"></div>
+				<h4>Servo 1:</h4>
+				<span id="servo1_values"></span><div id="servo1_slider"></div>
+				<h4>Servo 2:</h4>
+				<span id="servo2_values"></span><div id="servo2_slider"></div>
+				<h4>Servo 3:</h4>
+				<span id="servo3_values"></span><div id="servo3_slider"></div>
+				<h4>Servo 4:</h4>
+				<span id="servo4_values"></span><div id="servo4_slider"></div>
+				<h4>Servo 5:</h4>
+				<span id="servo5_values"></span><div id="servo5_slider"></div>
+				<h4>Servo 6:</h4>
+				<span id="servo6_values"></span><div id="servo6_slider"></div>
+				<h4>Servo 7:</h4>
+				<span id="servo7_values"></span><div id="servo7_slider"></div>
+				<h4>Servo 8:</h4>
+				<span id="servo8_values"></span><div id="servo8_slider"></div>
+				<h4>Servo 9:</h4>
+				<span id="servo9_values"></span><div id="servo9_slider"></div>
+
+			</div>
+
+			
+			<script src="jquery-3.4.1.min.js"></script>
+			<script src="jquery-ui.min.js"></script>
+			<script src="pixel-picker.js"></script>
+			<script src="jscolor.js"></script>
+			<script src="multitouchpad.js"></script>
+			<script src="taphold.js"></script>
+			<script src="iro.min.js"></script>
+
+		</div>
+
+	</body>
+	
+</html>

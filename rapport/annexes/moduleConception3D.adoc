@@ -1,0 +1,22 @@
+=== Module conception 3D
+
+==== Descriptions
+À partir des données 2D obtenues par le module « traitement de l’image », nous essayerons de rajouter de la perspective ainsi que de la chaleur au tableau (par exemple surélever les contours, chauffer les composantes du tableau qui expriment certaines émotions…) ensuite nous ferons en sorte de traduire ce nuage de points 3D en instruction exécutable par la Table XY et la nappe chauffante.
+
+*Encadrant* : Mickaël Bouhier
+*Etudiants* : Casta Gwendal, Mejdoub Ilyass
+
+*Objectif* : Traduire les données obtenues par le module "traitement de l'image" en instruction lisible par la Table XY.
+
+
+==== Avancement
+
+- Obtention d'une carte de profondeur grâce à un réseau de neuronnes pour les tableaux réalistes.
+- Utilisation d'algorithme de segmentation d'images pour obtenir des résultats similaires pour les tableaux abstraits.
+- Sous-échantillonnage du modèle final pour respecter les dimensions de la table de picots.
+- Conversion réussie des cartes de profondeur ( tableau numpy ) en nuages de points 3d (fichier .ply ou .stl) pour l'affichage sur le site web et en instructions pour la table XY (coordonnées en fichier.txt).
+
+
+==== Bibliographie spécifique
+
+http://www.open3d.org

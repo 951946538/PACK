@@ -1,0 +1,120 @@
+a{
+    text-decoration: none;
+}
+body{
+    padding-bottom: 5em;
+    
+    background-color: white;
+    background-image: url(test.webp);
+    background-repeat: no-repeat;
+    
+}
+
+/* page a propos */
+section{
+    font-size: 40px;
+    padding: 30px;
+    color: whitesmoke;
+}
+.box { 
+    padding-top: 1em;
+    border-radius: 10px;
+    font-size: 15px;
+    text-align: center;
+    background: linear-gradient(to left, #ed213a, #93291e);
+  }
+.conteneur {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 5rem 1fr ;
+    justify-content: space-between;
+    height:30vw;
+   
+}
+.description{
+    grid-column: 1/8;
+    font-size: 20px;
+}
+.titre-membres{
+    grid-column: 3/6;
+    grid-row: 2/3; 
+    color:rgb(199, 5, 5);
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 1000;
+}
+.membres{
+    grid-column:1/8;
+    grid-row:3/4;
+    display: flex;
+    align-content: space-around;
+    gap:1em;
+}
+
+/* page Tableaux */
+.container-img{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    gap:5%;
+    padding: 1.5em;
+
+}
+.img{
+    /* border: 2px solid blue; */
+    height:300px;
+    width: 300px;
+    position: center;
+    padding-block: 20px; 
+    border-radius: 50px;
+    /* border-image: url('paintings/frame.png') 30 / 19px round; */
+}
+.title-painting{
+    margin: auto;
+    margin-left: 1em;
+    padding-bottom: 2em;
+    text-align: center;
+    position: center;
+    color : whitesmoke
+    /* border: 2px solid; */
+    
+}
+.ply{
+    border: 2px solid black;
+}
+.menu{
+    /* background-image: url('paintings/test.webp'); */
+    /* border: 2px solid ; */
+    display: flex;
+    margin: 0 1.5%;
+    text-align: center;
+    line-height: 100px;
+    height: 95px;
+    /* gap: 20px; */
+    /* border-radius: 15px; */
+    
+    }
+
+.logo{
+    height: 6em;
+}    
+
+.link-tab{
+   
+    width: 7.5%;
+    font-size: 17px;
+    border: 1px solid #000;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0, 0.2);
+    color : #fff;
+    transition : .5s all;
+    
+}
+.link-tab:hover{
+    /* opacity: 0.5; */
+    cursor :pointer;
+    background-color: aqua;
+}
+

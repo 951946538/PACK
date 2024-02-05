@@ -1,0 +1,64 @@
+=== Module SES 
+Le module SES sur lequel nous travaillons est composé de trois branches principales. En
+effet, nous voulons aborder notre projet à la fois d’un point de vue social, environnemental et
+économique. Nous travaillons donc à répondre à ces trois problématiques principales.
+
+==== Notre projet répond-il bien à un besoin de la société ?
+Notre projet se veut inclusif en faisant participer l’ensemble de la société. Mais on porte
+une attention toute particulière à l’inclusion des personnes souffrant de déficience visuelle.
+Cette partie a deux objectifs ; d’une part, cerner le besoin auquel on cherche à répondre et
+guider ainsi la réalisation technique du projet et d’autre part, valider la pertinence du
+dispositif une fois terminé en le testant auprès de différents publics.
+
+*Travaux déjà effectués*
+
+Nombreux entretiens réalisés auprès de musées (Petit Palais, Louvre, Centre Pompidou),
+d’un psychologue spécialiste dans le domaine de la déficience visuelle, gérant d’une
+boutique réalisant du matériel spécialisé pour les mal-voyants et non-voyants, personnes
+souffrant de handicaps visuels. Ces entretiens nous ont permis d’écarter des idées non
+adéquates, d’envisager des solutions auxquelles nous n’avions pas pensé et de
+considérer les enjeux de mise en place du projet dans sa globalité pour un musée (vocation finale hypothétique de notre projet).
+
+* [x] Réalisation d’un prototype à faire tester
+* [*] Réalisation d’un questionnaire pour la phase test
+* [*] Réalisation de tests filmés auprès d’étudiants du prototype avec des objets
+* [*] Choix du tableau test et sa justification
+* [*] Réalisation du moulage 3D du tableau choisi à ajouter au prototype (en cours de
+finalisation)
+
+* [*] Prise de contact avec des associations de personnes souffrant de déficience visuelle en
+prévision du test final de notre dispositif
+Points qui restent à traiter :
+* [ ] Réalisation de tests avec le tableau choisis avec des étudiants et étude critique des
+résultats pour l’application à d’autres tableaux
+* [ ] Etendre cette phase de test avec d’autres publics : mal-voyants, non-voyants, personnes
+souffrant de handicaps mentaux, public de différentes tranches d’âge
+* [ ] Organisation complète de la phase test finale avec les différents publics visés
+
+====  Quel est le coût de notre projet ?
+
+Déterminer le coût de notre projet est un élément clé pour assurer la réussite de notre
+projet et sa viabilité financière. Cela nous permettra de planifier un budget réaliste, de
+justifier le financement (hypothétiquement ces sources sont l'Etat, Paris-musée, des
+associations comme Valentin Haüy et la billetterie) et de suivre les dépenses. Cette
+détermination prend d’autant plus de sens que le coût de ce type matériel est une
+problématique réelle à laquelle doivent faire face les musées.
+
+*Travaux effectués :*
+
+* [*] Première approximation du coût du projet lors déterminé avec les différents musées
+* [*] rencontrés
+* [*] Détermination du coût de chacun des composants utilisés pour le moment
+* [*] Estimation grossière du coût lié à l’alimentation du système
+
+==== Quel est le coût environnemental de notre projet ?
+
+Evaluer les coûts environnementaux de notre projet est important pour minimiser
+l'impact environnemental, respecter les normes environnementales, améliorer la durabilité et
+démontrer notre engagement envers la responsabilité sociale.
+
+*Travail effectué :*
+
+* [*] Estimation grossière du coût environnemental en prenant en compte les coûts liés à la production des différents composants, leur importation et à l'utilisation globale du dispositif : proche d'un réfrigérateur
+* [*] Application une méthode rigoureuse de détermination du coût carbone du projet
+

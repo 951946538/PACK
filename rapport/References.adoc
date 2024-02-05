@@ -1,0 +1,11 @@
+////
+*_Note : Liste des références exploitées. Une référence complète
+donne titre, auteur(s), date, journal, revue, source de publication,
+titre de conférence, numéro, pages. Une webographie est aussi
+envisageable : titre, auteur, date, page web_*
+////
+
+[bibliography]
+* [[[a]]] _Digital Fabrication Approaches for the Design and Development of Shape-Changing Displays_, Aluna Everitt, Fevrier 2020, University of Oxford, researchgate.net
+* [[[b]]] _Materiable_,  https://tangible.media.mit.edu/project/materiable/ , MIT Media Lab, Mai 2016, MIT
+* [[[c]]] _Unseen Art : des tableaux en 3D pour les aveugles_, https://cultunum.com/2015/12/09/unseen-art-des-tableaux-en-3d-pour-les-aveugles/ , Pauline WERTH,  Décembre 2015, Cultunum

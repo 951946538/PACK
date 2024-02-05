@@ -1,0 +1,177 @@
+= Rapport d’avancement: groupe “4.3”
+PACT groupe 4.3
+ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
+:doctype: book
+:stem: latexmath
+:source-highlighter: coderay
+:toc-title: Table des matières
+:toc: macro
+:sectnums:
+:imagesdir: images
+
+
+// Partie non numérotée
+:sectnums!:
+== Représentation tactile d'un tableau
+
+=== Membres du groupe
+
+* Gastineau Arthur
+* Landry Nina
+* Casta Gwendal
+* Chevrier Lucas
+* Oussou Kouakou Samuel
+* Gambardella Romain
+* Mejdoub Ilyass
+
+=== Tuteur
+
+* Jean Le Feuvre
+
+
+=== Liste des modules
+
+|===
+|*Nom du module* | *Module sur _adminpact_* | *Expert* | *Elèves*
+|Serveur et Interface Web
+|Communication client serveur
+|Jean-Claude Moissinac
+|Ilyass, Lucas
+|Traitement d'image
+|Traitement d'image
+|Michel Roux
+|Lucas, Gwendal
+|Conception 3D
+|Conception 3D
+|Mickaël Bouhier
+|Ilyass, Gwendal
+|Commande Table XY
+|Systèmes embarqués
+|Mickaël Bouhier
+|Nina, Arthur
+|Verrouillage table de picots
+|Autre
+|Mickaël Bouhier
+|Romain, Samuel
+|Tests & Intégration 
+|Tests & Intégration
+|Jean Claude Moissinac
+|Arthur, Samuel
+|SES
+|Cognition
+|Jean-Louis Dessalles
+|Nina, Romain
+|===
+<<<
+
+== Résumé du sujet choisi en français (PAN1)
+
+//*_Note: 15 lignes max_*
+
+//Décrire votre projet sans le scénariser : De quoi s’agit-il ? En quoi
+//cette idée est compatible avec le thème de PACT ? Qu’est-ce qu’il
+//permettrait de faire de façon générale.
+
+Selon une étude menée par Okeenea digital, une entreprise qui confectionne des produits podotactiles pour optimiser la liberté des personnes handicapées, 94% des non-voyants et malvoyants confirment se rendre au musée au moins une fois par an et plus de 8 sur 10 affirment qu’elles s’y rendraient plus souvent si le lieu et les œuvres étaient plus accessibles.
+
+Le manque d’aménagement dans les musées pour les personnes déficientes visuelles est donc une réalité et met en lumière un besoin social pressant. 
+
+Conscients de cette exclusion, le projet PACT nous offre une opportunité pour y pallier. Nous cherchons à retranscrire le tableau sous forme d’une expérience multisensorielle. Notre produit, un tableau constitué de picots mobiles serait déposable sur un chariot disponible à l’entrée du musée. Le rendu serait modifiable selon le tableau devant lequel se trouve la personne. Ce relief changeant pourrait être accompagné dans un second temps d'une nappe haptique(chauffante), d'une audio description et/ou d'un environement musical pour rendre l'experience plus immersive.
+
+Ce dernier est le résultat d’un traitement numérique de  l’œuvre, d’une interprétation artistique et de partis pris techniques de notre part.
+
+Ce projet représente pour nous un « défi à relever » puisqu’il permettrait l’intégration d’une partie de la population, celle souffrant d’un handicap visuel, qui était jusqu’à présent exclue des musées. C’est aussi un moyen de « faire réfléchir les autres » d’un point de vue artistique mais aussi social les  personnes non déficientes visuelles car notre produit permet une expérience de l’œuvre nouvelle tout en questionnant sur le handicap visuel.
+
+
+== English Summary (PAN1)
+
+//*_Note : 15 lignes max, version anglaise du texte précédent_*
+
+According to a study conducted by Okeenea digital, a company that makes podotactile products to optimize the freedom of disabled people, 94% of blind and visually impaired people confirm that they go to the museum at least once a year and more than 8 out of 10 say that they would go more often if the place and the works of art were more accessible. 
+
+The lack of facilities in museums for visually impaired people is therefore a reality and highlights a pressing social need. Aware of this exclusion, the PACT project offers us an opportunity to overcome it. 
+
+Our product, a painting made up of mobile pins, would be placed on a trolley available at the entrance of the museum. The rendering, modifiable according to the painting in front of which the person is standing, would be the result of a digital processing of the work, with a part of artistic interpretation due to our technical choices. To make the experience more immersive, there is the possibility to add music or an audio description of the painting.
+
+For us, this project represents a "challenge to be taken up" since it would allow the integration of a part of the population, the visually handicapped, which has been excluded from museums until now. It is also a way to offer another point of view on art, even for those not visually impaired, because our product allows a new experience of the work of art while questioning the visual handicap.
+
+.Montage photo illustrant l'utilisation de la table de picot dans un musée
+image::../images/illustration.jpg[image d'illustration]
+
+<<<
+//
+toc::[]
+<<<
+
+// On numérote le reste des sections
+:sectnums:
+
+== Étude d’antériorité et justification de la proposition (PAN1)
+
+include::proposition/proposition.adoc[Description de la proposition]
+
+include::proposition/etat-de-l-art.adoc[Description de l’état de l’art]
+
+<<<
+
+== Scénarios d’usage (PAN1)
+
+include::scenario/scenario.adoc[Scénarios d’usage]
+
+<<<
+
+== Architecture du projet (PAN1)
+
+include::architecture/schema.adoc[Schéma d’architecture]
+
+include::architecture/interfaces.adoc[Description des interfaces]
+
+include::architecture/sequence.adoc[Diagramme de séquence]
+
+include::architecture/ihm.adoc[Interface utilisateur graphique]
+
+<<<
+
+== Organisation du projet (PAN1)
+
+include::organisation/planification.adoc[Diagramme de planification temporel des tâches]
+
+include::organisation/plan-tests.adoc[Plans de test (PAN2+)]
+
+<<<
+
+[bibliography]
+
+== Bibliographie (PAN1+)
+
+include::References.adoc[Bibliographie]
+
+<<<
+
+== Documentations des modules (PAN4)
+
+//include::documentation/conception_3D.adoc[Conception 3D]
+include::documentation/serveur_interface_web.adoc[Serveur et Interface Web]
+//include::documentation/table_XY.adoc[Commande Table XY]
+//include::documentation/ses.adoc[Traitement d'image]
+include::documentation/verrouillage_table_picots.adoc[Verrouillage table de picots.adoc]
+
+<<<
+
+== Avancement (PAN2 à PAN4)
+
+//include::annexes/modifications.adoc[Modifications (PAN2+)]
+
+
+//include::annexes/moduleX.adoc[Avancement module X]
+
+//include::annexes/moduleY.adoc[Avancement module Y]
+
+include::annexes/avancement.adoc[Avancement final]
+
+include::annexes/moduleConception3D.adoc[Conception 3D]
+
+include::annexes/module_analyse_images.adoc[Analyse Image]
+
+include::annexes/moduleMeca.adoc[Avancement module Table de picots automatisée]
+include::annexes/ModuleSES.adoc[Avancement module SES]

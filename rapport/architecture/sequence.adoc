@@ -1,0 +1,6 @@
+=== Diagramme de séquence (optionnel)
+
+Nous avons esquissé un premier diagramme de séquence, qui décrit le scénario principal.
+
+.Diagramme Séquenciel
+image::../images/diagramme_sequentiel.png[diagramme sequenciel]

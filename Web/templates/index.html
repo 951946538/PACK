@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>3D model</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+		<script type="text/javascript" src = "./static/js/index.js"></script>
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylo.css') }}">
+    
+
+
+	</head>
+	
+	<body>
+		
+
+		<div class="menu">
+			<img class='logo' src="static/image/telecomparis_endossem_ipp_rvb_150pix.png" style="margin-right: 1.5%;">
+			<a class='link-tab' href="home" style="margin-right: 0.5%;"> Accueil </a>
+			<a class='link-tab' href="tableaux" style="margin-right: 0.5%;"> Tableaux </a>
+			<a class='link-tab' href="propos" style="margin-right: 0.5%;"> A propos </a>
+		</div>
+
+		<ul id="wait">
+			<div id="loader"> </div>
+			<p style="color:#ffffff ;"> Waiting for the 3D model  </p>
+		</ul>
+
+		{% if form %}
+        <div class="main", id="main">
+			<form action="/home" method="POST" enctype="multipart/form-data" style = "text-align: center;">
+				<p>
+					<input type="file" name="file" id="file" accept = ".jpg" >
+				</p>
+
+				<p style = "text-align: center;">
+
+					<div class="my-btn">
+						<input id= "SLIC" type="submit" name= "value" class="buttoner" value="SLIC" onclick="changeColorSLIC()"/>
+						<i class="fa fa-check"></i> 
+
+						<input id= "AUTO" type="submit" name= "value" class="buttoner3" value="AUTO" onclick="changeColorAUTO()"/>
+						<i class="fa fa-check"></i> 
+
+						<input id= "IA" type="submit" name= "value" class="buttoner2" value="IA" onclick="changeColorIA()"/>
+						<i class="fa fa-check"></i> 
+
+
+					</div>
+
+				</p>
+
+				<p>
+					<input id="submit" type="submit"  name = "value" value="Submit" onclick="process('wait','main')" >
+				</p>
+
+			</form>
+        </div>
+		{% endif %}
+		
+		{% if ply %}
+			<div class="containerDisplay" id ="containerDisplay">
+					<iframe id = "displayPLY" src="{{ url_for('display', file=ply) }}" style="border:1px solid gray;width:100%;height: 100%;"></iframe>
+			</div>
+		{% endif %}
+
+	</body>
+</html>
+
+
+

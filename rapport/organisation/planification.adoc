@@ -1,0 +1,69 @@
+=== Planning Prévisionnel PACT
+////
+==== Rappel des dates
+Les dates importantes de PACT sont:
+
+* PAN1: 22/11/2022
+* PAN2: fin janvier 2023
+* PAN3: 04/04/2023
+* PAN4: 30/05/2023
+
+Les deux tableaux ci-dessous doivent vous aider à évaluer votre avancement/retard dans le développement de votre projet.
+Vous pouvez aussi vous aider de ces tableaux pour:
+
+* identifier les périodes de fortes charge de travail
+* analyser les dépendances entre modules
+* les retards bloquant pour l'avancée de l'ensemble du projet (ce n'est pas forcément le cas pour tous les modules)
+////
+==== Planning Groupe
+
+Pour PAN1, on a remplit dans ce tableau les dates prévues.
+
+[cols=",^,,",options="header",]
+|====
+|Tâche principale| Responsable(s) | Quand Prévisionnel | Quand effectif
+|Intégration Initale | Arthur, Samuel |15/01/23| ...
+|Préparation PAN2 | Nina |20/01/23| ...
+|Intégration PAN3 | Arthur, Samuel |15/03/23| ...
+|Préparation PAN3 | Romain |25/03/23| ...
+|Préparation PAN4 (poster, video) | Gwendal |15/05/23| ...
+|====
+
+[cols=",^,,",options="header",]
+|====
+|Sous-tâche| Responsable(s) | Quand Prévisionnel | Quand effectif
+|Recherche base de données | Gwendal, Lucas |01/12/22| ...
+|Fabrication de la table de picots | Romain, Samuel |19/12/22|...
+|Entrainement réseau de neurones | Gwendal, Lucas |05/01/23| ...
+|Implémentation algorithme de séparation de couches 3D| Gwendal, Ilyass |05/01/23| ...
+|Tests mécanisme de blocage des picots | Romain, Samuel |16/01/23|...
+|Rencontre avec des professionnels de musées | Romain, Nina |30/03/23|...
+|Test sensoriel par un groupe de non-voyants et voyants | Romain, Nina |15/05/23|...
+|...|...|...|...
+|====
+
+==== Planning Modules
+////
+Nous vous demandons de prévoir les dates des étapes de développement de vos modules.
+Pour PAN1, vous remplirez les dates prévues. Vous mettrez à jour les dates finales en cours d'année.
+
+* Travail Initial: bibliographie sur le module
+* Version initiale: le module tourne en mode isolé
+* Version intégrable: le module est prêt à être intégré, il manquera vraisemblablement des fonctionnalités. Cela correspond à une version "squelette" du projet.
+* Version intégrée: le module est complet et intégré
+////
+
+[cols=",^,^,,,",options="header",]
+|====
+|Module technique | Responsables | Travail Initial | Version initiale | Version intégrable | Version intégrée
+|Verrouillage Table Picots | Romain, Samuel | prévu: 31/12/22 fait:oui | prévu: 15/01/23 fait:oui | prévu: 15/02/23 fait:oui | prévu: 15/03/23 fait:oui
+|Commande table XY| Nina, Arthur | prévu: 31/12/22 fait:oui | prévu: 01/02/23 fait:oui | prévu: 01/03/23 fait:oui | prévu: 15/03/23 fait:oui
+|Traitement d'image | Lucas, Gwendal | prévu: 01/12/22 fait:oui | prévu: 01/02/23 fait:oui | prévu: 15/02/23 fait:oui | prévu: 15/03/23 fait:oui
+|Conception 3D | Ilyass, Gwendal | prévu: 31/12/22 fait:oui | prévu: 15/02/23 fait:oui | prévu: 27/02/23 fait:oui | prévu: 15/03/23 fait:oui
+|Client-Serveur | Ilyass, Lucas | prévu: 31/12/22 fait:oui | prévu: 01/02/23 fait:oui | prévu: 07/03/23 fait:oui | prévu: 15/03/23 fait:oui
+|====
+
+
+//Vous mettrez par ailleurs à jour les annexes de vos modules - cf le modèle d'annexe.
+
+

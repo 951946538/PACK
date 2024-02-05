@@ -1,0 +1,130 @@
+= Rapport d’avancement: groupe “4.3”
+PACT groupe 4.3 (Les plus beaux)
+ifdef::env-gitlab,env-browser[:outfilesuffix: .adoc]
+:doctype: book
+:stem: latexmath
+:source-highlighter: coderay
+:toc-title: Table des matières
+:toc: macro
+:sectnums:
+:imagesdir: images
+
+
+// Partie non numérotée
+:sectnums!:
+== Représentation tactile de tableau
+
+=== Membres du groupe
+
+* Gastineau Arthur
+* Landry Nina
+* Casta Gwendal
+* Chevrier Lucas
+* Oussou Kouakou Samuel
+* Gambardella Romain
+* Mejdoub Ilyass
+
+=== Tuteur
+
+* Jean Le Feuvre
+
+=== Encadrant génie logiciel
+
+* Jean-Claude Moissinac
+
+<<<
+
+== Résumé du sujet choisi en français (PAN1)
+
+*_Note: 15 lignes max_*
+
+Décrire votre projet sans le scénariser : De quoi s’agit-il ? En quoi
+cette idée est compatible avec le thème de PACT ? Qu’est-ce qu’il
+permettrait de faire de façon générale.
+
+Selon une étude menée par Okeenea digital, une entreprise qui confectionne des produits podotactiles pour optimiser la liberté des personnes handicapées, 94% des non-voyants et malvoyants confirment se rendre au musée au moins une fois par an et plus de 8 sur 10 affirment qu’elles s’y rendraient plus souvent si le lieu et les œuvres étaient plus accessibles. Le manque d’aménagement dans les musées pour les personnes déficientes visuelles est donc une réalité et met en lumière un besoin social pressant. Conscients de cette exclusion, le projet PACT nous offre une opportunité pour y pallier. Nous cherchons à retranscrire le tableau sous forme d’une expérience multisensorielle. Notre produit, un tableau constitué de picots mobiles recouverts d’une nappe haptique et doté de haut-parleurs, serait déposable sur un chariot disponible à l’entrée du musée. Le rendu serait modifiable selon le tableau devant lequel se trouve la personne. Ce dernier est le résultat d’un traitement numérique de  l’œuvre, d’une interprétation artistique et de partis pris techniques de notre part. Ce projet représente pour nous un « défi à relever » puisqu’il permettrait l’intégration d’une partie de la population, celle souffrant d’un handicap visuel, qui était jusqu’à présent exclue des musées. C’est aussi un moyen de « faire réfléchir les autres » d’un point de vue artistique mais aussi social les  personnes non déficientes visuelles car notre produit permet une expérience de l’œuvre nouvelle tout en questionnant sur le handicap visuel.
+
+== English Summary (PAN1)
+
+*_Note : 15 lignes max, version anglaise du texte précédent_*
+
+According to a study conducted by Okeenea digital, a company that makes podotactile products to optimize the freedom of disabled people, 94% of blind and visually impaired people confirm that they go to the museum at least once a year and more than 8 out of 10 say that they would go more often if the place and the works of art were more accessible. The lack of facilities in museums for visually impaired people is therefore a reality and highlights a pressing social need. Aware of this exclusion, the PACT project offers us an opportunity to overcome it. We are seeking to transcribe the painting into a multi-sensory experience. Our product, a painting made up of mobile pins covered with a haptic layer and equipped with loudspeakers, would be placed on a trolley available at the entrance of the museum. The rendering changes according to the painting in front of the person. This is the result of digital processing of the painting, artistic interpretation and our technical choices. For us, this project represents a "challenge to be taken up" since it would allow the integration of a part of the population, the visually handicapped, which has been excluded from museums until now. It is also a way to "make others think" from an artistic point of view, but also socially for people who are not visually impaired, because our product allows a new experience of the work of art while questioning the visual handicap.
+
+<<<
+
+*Notes concenant le rapport*
+
+Les différentes pages du document sont rédigées en utilisant le langage
+AsciiDoc. Le squelette de rapport contient des exemples avec entre autres:
+
+* des images,
+* des liens,
+* des équations.
+
+La structure du rapport (parties, sections et la relation avec les
+différents fichiers) se trouve dans le fichier courant.
+
+**Prenez le temps** de supprimer le texte de remplissage et les sections non
+utilisées pour l'instant. Vous pouvez par exemple commenter ces parties non
+utilisées pour qu'elles n'apparaissent pas dans le document final. En Asciidoc,
+il suffit de les précéder de deux slashs (`//`).
+
+<<<
+toc::[]
+<<<
+
+// On numérote le reste des sections
+:sectnums:
+
+== Étude d’antériorité et justification de la proposition (PAN1)
+
+include::proposition/proposition.adoc[Description de la proposition]
+
+include::proposition/etat-de-l-art.adoc[Description de l’état de l’art]
+
+<<<
+
+== Scénarios d’usage (PAN1)
+
+include::scenario/scenario.adoc[Scénarios d’usage]
+
+<<<
+
+== Architecture du projet (PAN1)
+
+include::architecture/schema.adoc[Schéma d’architecture]
+
+include::architecture/interfaces.adoc[Description des interfaces]
+
+include::architecture/sequence.adoc[Diagramme de séquence]
+
+include::architecture/ihm.adoc[Interface utilisateur graphique]
+
+<<<
+
+== Organisation du projet (PAN1)
+
+include::organisation/planification.adoc[Diagramme de planification temporel des tâches]
+
+include::organisation/plan-tests.adoc[Plans de test (PAN2+)]
+
+<<<
+
+[bibliography]
+== Bibliographie (PAN1+)
+
+include::References.adoc[Bibliographie]
+
+<<<
+
+== Annexes
+
+include::annexes/modifications.adoc[Modifications (PAN2+)]
+
+include::annexes/avancement.adoc[Avancement des modules]
+
+include::annexes/moduleX.adoc[Avancement module X]
+
+include::annexes/moduleY.adoc[Avancement module Y]
+
+//include::annexes/moduleMeca.adoc[Avancement module mécanique]

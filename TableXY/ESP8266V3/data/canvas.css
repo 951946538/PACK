@@ -1,0 +1,42 @@
+*{
+   padding: 0;
+   margin: 0;
+ }
+ body{
+    overscroll-behavior-y: contain;
+ }
+
+ .mainPage{
+    width: 100vw; 
+
+ }
+
+.canvas{
+    width: 70%; 
+    height: 0;
+    padding-top: 42%; 
+    float: left;
+    border:3px solid #000;
+    
+}
+.functionArea{
+    width: 110px; 
+    float: left;
+}
+
+.color-option {
+  width: 25px;
+  height: 25px;
+  margin: 1px;
+  cursor:pointer;
+  float: left;
+}
+#colorPicker {
+  border-right: 10px solid #003cb3;
+}
+.inp {
+      border: 1px solid #949494;
+      border-radius: 3px;
+      padding: 10px;
+      font-size: 110%;
+    }

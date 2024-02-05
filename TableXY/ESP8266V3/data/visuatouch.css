@@ -1,0 +1,270 @@
+.container { 
+	margin:5px auto; 
+	max-width:800px;
+	/*max-width:740px;*/
+}	
+		
+#colorPicker {
+  border-right: 10px solid #003cb3;
+}
+
+.pixel-picker-container{
+	top:157px;
+	left:23px;
+	position:relative;
+	width:346px;
+	height:107px;
+	opacity:0.5;
+}
+
+/* ================================================================*/
+/*                         Visuatouch                              */
+/* ================================================================*/
+h1{
+	text-align:center; 
+	margin-bottom:15px;
+}
+
+h2{
+	text-align:center; 
+	margin-bottom:30px;
+}
+
+h3{
+	text-align:left; 
+	margin-top:30px;
+	font-size:15px;
+}
+
+.hand_background{
+	overflow:hidden;
+	background-image:url("harm2.png");
+	background-size: cover;
+    background-position: center;
+	height:320px;
+	width:740px;
+}
+
+
+.control_panel{
+  width:100%;
+  background-color: rgba(247, 237, 222, 1);
+  border: 1px solid grey; 
+  color: black;
+  padding: 10px 24px; 
+  cursor: pointer; 
+  float: left; 
+}
+
+
+.presets_panel{
+  width:100%;
+  background-color: rgba(247, 237, 222, 1);
+  border: 1px solid grey; 
+  color: black;
+  padding: 10px 24px; 
+  cursor: pointer; 
+  float: left; 
+}
+
+.admin_panel{
+  width:100%;
+  background-color: rgba(247, 237, 222, 1);
+  border: 1px solid grey; 
+  color: black; 
+  padding: 10px 24px; 
+  cursor: pointer;
+  /*float: left; */
+}
+
+.control_panel button{
+	height:70px;
+	width:70px;
+	border-radius: 4px;
+}
+
+.control_panel button:hover {
+  background-color: #4CAF50;
+}
+
+
+.presets_panel button{
+	height:70px;
+	width:70px;
+	border-radius: 4px;
+}
+.presets_panel button:hover {
+  background-color: #4CAF50;
+}
+
+
+
+/* ====================== Color Picker ============================*/
+.color_choice{
+	float:right;
+}
+.color_choice p{
+	line-height:10px;
+}
+.color_choice button{
+	margin-top:5px;
+	height:55px;
+}
+
+
+/* ====================== Presets buttons ============================*/
+.presets_panel .LSP_button {
+	/*background-image:url("random_colored.png");*/
+	background-repeat:no-repeat;
+	font-weight: bold;
+}
+
+.presets_panel .MSP_button {
+	/*background-image:url("random_colored.png");*/
+	background-repeat:no-repeat;
+	font-weight: bold;
+}
+
+.presets_panel .HSP_button {
+	/*background-image:url("random_colored.png");*/
+	background-repeat:no-repeat;
+	font-weight: bold;
+}
+
+.presets_panel .L_INT_button {
+	/*background-image:url("random_colored.png");*/
+	background-repeat:no-repeat;
+	font-weight: bold;
+}
+
+.presets_panel .M_INT_button {
+	/*background-image:url("random_colored.png");*/
+	background-repeat:no-repeat;
+	font-weight: bold;
+}
+
+.presets_panel .H_INT_button {
+	/*background-image:url("random_colored.png");*/
+	background-repeat:no-repeat;
+	font-weight: bold;
+}
+
+
+
+/* ====================== Patern buttons ============================*/
+.control_panel .random_colored_button {
+	background-image:url("random_colored.png");
+	background-repeat:no-repeat;
+}
+.control_panel .random_rainbow_button {
+	background-image:url("random_rainbow.png");
+	background-repeat:no-repeat;
+}
+.control_panel .BT_button {
+	background-image:url("arrow_BT.png");
+	background-repeat:no-repeat;
+}
+.control_panel .TB_button {
+	background-image:url("arrow_TB.png");
+	background-repeat:no-repeat;
+}
+.control_panel .LR_button {
+	background-image:url("arrow_LR.png");
+	background-repeat:no-repeat;
+}
+.control_panel .RL_button {
+	background-image:url("arrow_RL.png");
+	background-repeat:no-repeat;
+}
+.control_panel .EM_button {
+	background-image:url("arrow_EM.png");
+	background-repeat:no-repeat;
+}
+.control_panel .ME_button {
+	background-image:url("arrow_ME.png");
+	background-repeat:no-repeat;
+}
+.control_panel .random_pixel_button {
+	background-image:url("dice.png");
+	background-repeat:no-repeat;
+	background-size: cover;
+    background-position: center;
+}
+.control_panel .SNAKE_LR_button {
+	background-image:url("arrow_snake_LR.png");
+	background-repeat:no-repeat;
+	background-size: cover;
+    background-position: center;
+}
+
+
+/*=========================================================================================*/
+.drawingPart{
+	float:left;
+	/*width:95%;*/
+}
+#colorPart{
+	/*background-color: #cc6600;*/
+	display:inline-block;
+	/*float:left;*/
+	/*margin-left:86%;*/
+	/*height:320px;*/
+	/*background: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, violet);*/
+}
+
+.menuButtonArea{
+	/*display:inline-block;*/
+	/*float:left;*/
+	/*width:5%;*/
+	/*padding-left: 95%;	*/
+}
+
+
+.color_block{
+	float:left;
+	margin:5px;
+	width:10%;
+	padding-top: 10%;
+}
+
+#fulloptionMenu_button{
+	display:inline-block;
+/*	margin-top:10px;
+	padding:10px;*/
+	width:100%;
+	height:5vh;
+	margin-top:1vh;
+}
+
+#colorChoiceMenu_button{
+	display:inline-block;
+/*	margin-top:10px;
+	padding:10px;*/
+	width:100%;
+	height:92vh;
+}
+
+.color_choice_menu{
+	/*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    height: 100vh;
+}
+
+#colorPickerHolder{
+	background-color: #cc6600;
+	height:100vh;
+	width:100vw;
+}
+#colorPickerHolder{
+	background-color: #cc6600;
+	height:100vh;
+	width:100vw;
+}
+#RoundColorPicker{
+	float: left;
+	padding: 4vw 49vh;
+}
+
+
+

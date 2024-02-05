@@ -1,0 +1,21 @@
+extends:
+- default-with-font-fallbacks
+- default-sans
+
+page:
+  size: A4
+  margin: 2.5cm
+title-page:
+  background-image: image:images/pact.svg[]
+  logo:
+    image: image:images/pact.svg[]
+    top: 0%
+  title:
+    font-size: 32
+    font-style: bold
+    font-color: #000000
+  sub-title:
+    font-size: 24
+  authors:
+    font-size: 22
+

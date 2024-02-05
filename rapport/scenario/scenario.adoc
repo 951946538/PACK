@@ -1,0 +1,10 @@
+=== Scénarios d’usage
+
+Les utilisateurs de notre machine pourront prendre une photo d’une peinture et l’envoyer via un site web trouvable grâce à un QR code. L’application leur donnera un temps d’attente relatif à la transcription de cette œuvre en un modèle et l'implémentation du modèle sur une table de picots. Ce modèle sera une représentation en perspective de la peinture. Cette représentation permettra de déterminer la forme des éléments principaux du tableau ainsi que de les différencier en les mettant sur des couches de profondeur différentes. En attendant le construction de l'oeuvre sur la table de picots par l'action d'une table XY, le fichier 3D du modèle est consultable sur le site web.
+Le temps d’attente achevé, les utilisateurs pourront toucher et ressentir cette transcription sur la table de picots. Ce sera une surface de taille 40x20 cm environ dont les différents picots ressortiront avec une hauteur variable pour permettre de ressentir la perspective.
+
+Dans les grands musées comme le Louvre, on pourrait imaginer de telles représentations à côté des tableaux importants. Pour une exposition, le guide pourrait programmer un changement de représentation toutes les x minutes et accompagner la présentation d'une narration.
+
+Le but premier est d'accompagner les malvoyants (mais aussi offrir une autre expérience aux voyants) lors de leur passage devant une œuvre d'art.
+
+En conclusion, cette œuvre permettra une expérience sensorielle nouvelle pour tous les utilisateurs qui consomment de l’art, mais représente également un moyen de créer du lien social.

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Display PLY file </title>
+        <style>
+
+        body {
+            overflow: hidden;
+            margin: 0px;
+        }
+
+        #progressBar {
+                width: 500px;
+                height: 24px;
+                position: absolute;
+                left: 50%;
+                top: 10px;
+                margin-left: -250px;
+            }
+        
+        </style>
+
+    </head>
+
+    <body>
+        {% if renderPLY %}
+            <progress value="100" max="100" id="progressBar" style="display : none"> </progress>
+            <script type="module" src="../static/js/script.js"  path="{{ path }}"> </script>
+        {% endif %}
+    </body>
+</html>

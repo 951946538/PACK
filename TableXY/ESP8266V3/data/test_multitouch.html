@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Multi Touch HTML5 Canvas Paint</title>
+<meta charset="UTF-8">
+</head>
+<!--[if lt IE 7 ]> <body class="ie6 "> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie7 "> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie8 "> <![endif]-->
+<!--[if !IE]>--> <body class=""> <!--<![endif]-->
+<!-- wondering wtf that ^^^ is? 
+     check: http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+-->
+
+<div id="content">
+<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style media="screen">canvas{border:1px solid #ccc}</style>
+<canvas id="drawArea" ></canvas>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+</script>
+<script>
+ //<![CDATA[
+
+
+ function getXYinMatrixCoo(x, y, column_count=10, line_count=6){
+
+    var canvas = document.getElementById("drawArea"), ctxt = canvas.getContext("2d");
+    
+    var screen_width = canvas.width;
+    var screen_height = canvas.height;
+    
+    console.log("width:",screen_width);
+    console.log("height:",screen_height);
+    
+    
+    var line   = Math.floor(y*line_count/screen_height);
+    var column = Math.floor(x*column_count/screen_width);
+    
+    //console.log("x:",x);
+    //console.log("y:",y);
+    
+    return [line,column];
+};
+
+
+window.addEventListener('resize', reportWindowSize);
+ 
+function reportWindowSize() {
+  var h = window.innerHeight;
+  var w = window.innerWidth;
+  
+  console.log("window resize");
+  console.log(w);
+  console.log(h);
+}
+
+//var timer;
+
+
+var touchMatrix = [ [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0],
+                    [0,0,0,0,0,0,0,0,0,0]];
+
+var prevTouchMatrix = [ [0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0],
+                        [0,0,0,0,0,0,0,0,0,0]];
+
+
+function getInfosFromTouch(touch){
+    var br = document.getElementById("drawArea").getBoundingClientRect();
+
+    var column_count = 10;
+    var line_count = 6;
+
+    var cell_width_in_px  = br.width / column_count;
+    var cell_height_in_px = br.height / line_count;
+
+    var x_rel = (touch.clientX - br.left)/br.width;
+    var y_rel = (touch.clientY - br.top)/br.height;
+    
+    // console.log("changed id:",touch.identifier);
+    // console.log("clientX:",touch.clientX);
+    // console.log("clientY:",touch.clientY);
+
+    // console.log("x_rel:", x_rel);
+    // console.log("y_rel:", y_rel);
+    
+    x_rel = x_rel < 0 ? 0 : x_rel >= 1 ? 0.99 : x_rel;
+    y_rel = y_rel < 0 ? 0 : y_rel >= 1 ? 0.99 : y_rel;
+
+    var x_mat = Math.floor(x_rel*column_count);
+    var y_mat = Math.floor(y_rel*line_count);
+
+    // console.log("x_rel_c:", x_rel);
+    // console.log("y_rel_c:", y_rel);
+
+    //console.log("x :",x_mat);
+    //console.log("y :",y_mat);
+
+    var cell_x_top_in_px = x_mat*cell_width_in_px;
+    var cell_y_top_in_px = y_mat*cell_height_in_px;
+
+    return [x_mat, y_mat, cell_x_top_in_px, cell_y_top_in_px, cell_width_in_px, cell_height_in_px]
+} 
+
+function sendTouchMatrixIfStateChanged(){
+
+    var mat_changed = false;
+
+    //console.log("inside sendTouchMatrixIfStateChanged");
+    //console.log(touchMatrix);
+    //console.log("prev:    " + JSON.stringify(prevTouchMatrix));
+    //console.log("current: " + JSON.stringify(touchMatrix));
+
+    if(JSON.stringify(prevTouchMatrix)==JSON.stringify(touchMatrix)) mat_changed = false;
+    else mat_changed = true;
+
+    if(mat_changed){
+        console.log("send new matrix!");
+        //console.log(touchMatrix);
+    }
+    //copie sans reference
+    prevTouchMatrix = touchMatrix.map(function(arr){return arr.slice()});
+
+    //console.log("new prev: " + JSON.stringify(prevTouchMatrix));
+    
+}
+
+
+var CanvasDrawr = function(options) {
+    var canvas = document.getElementById(options.id), ctxt = canvas.getContext("2d");
+    canvas.style.width = '100%'
+	canvas.width = window.innerWidth - 100;//document.body.clientWidth;
+	canvas.height = window.innerHeight - 30;
+    //canvas.width = canvas.offsetWidth;
+    canvas.style.width = '';
+    ctxt.lineWidth = 0;//options.size || Math.ceil(Math.random() * 35);
+    ctxt.lineCap = options.lineCap || "round";
+    ctxt.pX = undefined;
+    ctxt.pY = undefined;
+    var lines = [, , ];
+    var offset = $(canvas).offset();
+    var self = {init: function() {
+
+                    //canvas.addEventListener('touchstart', self.allevent, false);
+					canvas.addEventListener('touchstart', self.touchStart, false);
+					canvas.addEventListener('touchend', self.touchStop, false);
+					canvas.addEventListener('touchmove', self.touchMove, false);
+                    
+                    //timer = window.setInterval(sendTouchMatrixIfStateChanged, 50);
+					//canvas.addEventListener('touchmove', self.allevent, false);
+                    //canvas.addEventListener('touchend', self.allevent, false);
+					
+					//canvas.addEventListener('touchstart', self.preDraw, false);
+                    //canvas.addEventListener('touchmove', self.draw, false);
+                    //canvas.addEventListener('touchend', self.endTouch, false);
+
+                },resetTouchMatrix:function(){
+					touchMatrix =     [ [0,0,0,0,0,0,0,0,0,0],
+									    [0,0,0,0,0,0,0,0,0,0],
+									    [0,0,0,0,0,0,0,0,0,0],
+								    	[0,0,0,0,0,0,0,0,0,0],
+								    	[0,0,0,0,0,0,0,0,0,0],
+							     		[0,0,0,0,0,0,0,0,0,0]];
+				},touchStart:function(event){
+
+                    //console.log("touchStart called");
+                    self.resetTouchMatrix();
+                    $.each(event.touches, function(i, touch) {
+                        //var id = touch.identifier;
+						const [x_mat, y_mat, cell_x_top_in_px, cell_y_top_in_px, cell_width_in_px, cell_height_in_px] = getInfosFromTouch(touch);
+						//////////console.log("new touch event");
+                        ctxt.strokeStyle = "#FF0000"; 
+                        ctxt.fillStyle   = "#FF0000";
+                        ctxt.fillRect(cell_x_top_in_px,cell_y_top_in_px, cell_width_in_px, cell_height_in_px);
+						touchMatrix[y_mat][x_mat] = 1;
+                    });
+
+                    sendTouchMatrixIfStateChanged();
+
+
+				},touchStop:function(event){
+
+                    //console.log("touchStop called");
+                    $.each(event.changedTouches, function(i, touch) {
+                        //var id = touch.identifier;
+						const [x_mat, y_mat, cell_x_top_in_px, cell_y_top_in_px, cell_width_in_px, cell_height_in_px] = getInfosFromTouch(touch);
+						////////////console.log("end touch event");
+                        ctxt.strokeStyle = "#FF00FF";   
+                        ctxt.fillStyle = "#FFFFFF";
+                        ctxt.fillRect(cell_x_top_in_px,cell_y_top_in_px, cell_width_in_px, cell_height_in_px);
+						touchMatrix[y_mat][x_mat] = 0;
+                    });
+
+                    sendTouchMatrixIfStateChanged();
+
+				
+				},touchMove:function(event){
+				    //console.log("touchMove called");
+					self.resetTouchMatrix();
+                    ctxt.strokeStyle = "#FFFFFF";  
+				    ctxt.fillStyle = "#ffffff";
+                    ctxt.fillRect(0,0,canvas.width,canvas.height);
+					
+					$.each(event.touches, function(i, touch) {
+						const [x_mat, y_mat, cell_x_top_in_px, cell_y_top_in_px, cell_width_in_px, cell_height_in_px] = getInfosFromTouch(touch);
+						///////////console.log("move touch event");
+                        ctxt.fillStyle = "#FF0000";
+                        ctxt.fillRect(cell_x_top_in_px,cell_y_top_in_px, cell_width_in_px, cell_height_in_px);
+						touchMatrix[y_mat][x_mat] = 1;
+                        //console.log(y_mat,x_mat);
+					});
+
+                    sendTouchMatrixIfStateChanged();
+
+					
+				
+				},allevent:function(event){
+                    var touches = event.changedTouches;
+					event.preventDefault();
+					console.log("OK");
+                    ctxt.fillStyle = "#ffffff";
+                    ctxt.fillRect(0,0,canvas.width,canvas.height);
+
+                    for (var i=0; i<touches.length; i++) {
+                        
+                        const [x_mat, y_mat, cell_x_top_in_px, cell_y_top_in_px, cell_width_in_px, cell_height_in_px] = getInfosFromTouch(touches[i]);
+
+                        ctxt.fillStyle = "#FF0000";
+                        ctxt.fillRect(cell_x_top_in_px,cell_y_top_in_px, cell_width_in_px, cell_height_in_px);
+
+                    }
+					
+
+                },preDraw: function(event) {
+                    $.each(event.touches, function(i, touch) {
+                        var id = touch.identifier, colors = ["red", "green", "yellow", "blue", "magenta", "orangered"], mycolor = colors[Math.floor(Math.random() * colors.length)];
+                        lines[id] = {x: this.pageX - offset.left,y: this.pageY - offset.top,color: mycolor};
+                    });
+                    event.preventDefault();
+                },draw: function(event) {
+                    var e = event, hmm = {};
+                    $.each(event.touches, function(i, touch) {
+                        var id = touch.identifier, moveX = this.pageX - offset.left - lines[id].x, moveY = this.pageY - offset.top - lines[id].y;
+                        var ret = self.move(id, moveX, moveY);
+                        lines[id].x = ret.x;
+                        lines[id].y = ret.y;
+                    });
+                    event.preventDefault();
+                },move: function(i, changeX, changeY) {
+                    ctxt.strokeStyle = lines[i].color;
+                    ctxt.beginPath();
+                    ctxt.moveTo(lines[i].x, lines[i].y);
+                    ctxt.lineTo(lines[i].x + changeX, lines[i].y + changeY);
+                    ctxt.stroke();
+                    ctxt.closePath();
+                    return {x: lines[i].x + changeX,y: lines[i].y + changeY};
+                },endTouch: function(event) {
+                    var touches = event.changedTouches;
+                    
+                    for (var i=0; i<touches.length; i++) {
+                        console.log("out id:",touches[i].identifier);
+
+
+                        const [x_mat, y_mat, cell_x_top_in_px, cell_y_top_in_px, cell_width_in_px, cell_height_in_px] = getInfosFromTouch(touches[i]);
+
+                        ctxt.fillStyle = "#ffffff";
+                        ctxt.fillRect(cell_x_top_in_px,cell_y_top_in_px, cell_width_in_px, cell_height_in_px);
+                    }
+    
+        }};
+    return self.init();
+};
+$(function() {
+    var super_awesome_multitouch_drawing_canvas_thingy = new CanvasDrawr({id: "drawArea",size: 15});
+});
+//]]></script>
+</div>
+
+
+
+</body>
+</html>

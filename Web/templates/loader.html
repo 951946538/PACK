@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My first three.js app</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/loader.css') }}">
+        <input type="hidden" id="X" name="x">
+		
+
+
+	</head>
+	
+	<body>
+        <div>
+            <div class="loader"></div>
+
+            <div>
+                <img src="data:image/{{file_extension}};base64, {{ filename }}">
+            
+            </div>
+        </div>
+
+        
+        
+    </body>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>paintings</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylo.css') }}">
+    
+</head>
+<body>
+    
+    <div class="menu">
+        <img class='logo' src="static/image/telecomparis_endossem_ipp_rvb_150pix.png" style="margin-right: 1.5%;">
+        <a class='link-tab' href="home" style="margin-right: 0.5%;"> Accueil </a>
+        <a class='link-tab' href="tableaux" style="margin-right: 0.5%;"> Tableaux </a>
+        <a class='link-tab' href="propos" style="margin-right: 0.5%;"> A propos </a>
+    </div>
+
+
+    <div class="container-img">
+        <div>
+            <img class="img" src="static/paintings/mona.jpeg" alt="monalisa" />
+            <br>
+            <em class="title-painting">La joconde de Leonard de Vinci</em>
+        </div>
+        <div class="ply">
+            <iframe id = "displayPLY" src="{{ url_for('display', file='joconde') }}" style="border:1px solid gray;width:100%;height: 100%;"></iframe>
+        </div>
+        <div>
+            <img class="img" src="static/paintings/pipe.jpg" alt="La dance "/>
+            <br>
+            <em class="title-painting">Ceci n'est pas une pipe</em>
+        </div>
+        <div class="ply">
+            <iframe id = "displayPLY" src="{{ url_for('display', file='pipe') }}" style="border:1px solid gray;width:100%;height: 100%;"></iframe>
+        </div>
+        <div>
+            <img class="img" src="static/paintings/La-dance.jpg" alt="La dance "/>
+            <br>
+            <em class="title-painting">La Danse de Henri Matisse</em>
+        </div>
+        <div class="ply">
+            <iframe id = "displayPLY" src="{{ url_for('display', file='ladanseMatisse') }}" style="border:1px solid gray;width:100%;height: 100%;"></iframe>
+        </div>
+    </div>
+    
+</body>
+</html>

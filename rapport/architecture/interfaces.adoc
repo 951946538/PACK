@@ -1,0 +1,28 @@
+////
+
+Pour le PAN1, il faut identifier et décrire sommairement toutes les
+interfaces entre modules.
+
+Pour le PAN2, il faut une description complète des interfaces.
+
+Il faut ici une description textuelle de chaque interface, c'est-à-dire chaque
+échange entre deux blocs.
+Si c’est une interface entre deux blocs informatiques, c’est une interface
+Java.
+S’il y a des échanges de données complexes, il faut en décrire le format avec
+précision.
+Si c’est une interface entre deux blocs électroniques, c’est une description
+des signaux électroniques ou protocoles utilisés.
+
+////
+=== Description des interfaces
+
+Pour le PAN1, nous avons identifier et décrire sommairement les 2 interfaces principales de notre projet.
+
+==== Interface entre le bloc **Serveur** et le bloc **IA**
+
+D'un côté, l'image sous format téléversée par l'utilisateur est envoyée vers le bloc IA. D'un autre côté, le bloc IA renvoie un temps estimé d'implémentaion, un nuage de points 3D (matrice dont chaque élément est un vecteur contenant les trois coordonnées de l'espace) représentant l'oeuvre et un fichier détenant les instructions pour la table XY.
+
+==== Interface entre le bloc **Serveur** et le bloc **Table de picots automatisée**
+
+Les instructions pour la table XY (une hauteur donnée pour chaque picot ou groupe de picot à une position donnée) sont envoyées sous format csv ou équivalent par le serveur. Le module commande de la table XY est ensuite en charge de traduire ces instructions en termes de déplacements de la table XY. Enfin, lorsque le "dessin" est terminé, un signal de fin est envoyé au serveur.

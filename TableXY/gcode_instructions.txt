@@ -1,0 +1,25 @@
+https://www.simplify3d.com/resources/articles/3d-printing-gcode-tutorial/
+
+G28 – Perform Homing Routine
+G28 ; home all axes (X, Y, and Z)
+G28 X Y ; home X and Y axes
+
+G90 and G91 – Set Positioning Mode
+G90 ; use absolute positioning for the XYZ axes
+G1 X10 F3600 ; move to the X=10mm position on the bed
+G1 X20 F3600 ; move to X=20mm
+
+G91 ; use relative positioning for the XYZ axes
+G1 X10 F3600 ; move 10mm to the right of the current location
+G1 X10 F3600 ; move another 10mm to the right
+
+G1 – Linear Movement
+
+G1 X0 Y0 F2400 ; move to the X=0 Y=0 position on the bed at a speed of 2400 mm/min
+G1 Z10 F1200 ; move the Z-axis to Z=10mm at a slower speed of 1200 mm/min
+G1 X30 E10 F1800 ; push 10mm of filament into the nozzle while moving to the X=30 position at the same time
+
+G92 – Set Current Position
+
+G92 E0 ; set the current filament position to E=0
+G1 E10 F800 ; extrude 10mm of filament

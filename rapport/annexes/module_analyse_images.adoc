@@ -1,0 +1,17 @@
+=== Module Analyse d'images
+Avancement et documentation
+
+==== Classification des peintures
+Nous sommes parvenus à implémenter un algorithme capable de différencier 2 types de tableaux: d'un côté, les tableaux dits abstraits, d'un autre, les tableaux dits figuratifs.
+Un premier modèle basé sur un réseau de neurone a rendu des résultats très satisfaisants dès la fin du PAN2. Il a été construit à partir d'un ensemble de données labellisées composé de photos de peintures et leur type associé. Celui-ci est en mesure de classifier n'importe quel tableau donné en entrée parmi 25 styles différents (cubisme, expressionisme, impressionnisme, minimalisme, etc.). Ces 25 styles sont alors séparer en 2 groupes: abstrait et figuratif.
+Durant la période de PAN3, nous l'avons testé sur de nouvelles données que nous avions sélectionnées en amont. Certaines peintures, dont le style, les couleurs et les formes sont très éloignés de ceux des peintures incluses dans notre base de données d'entrainement, n'étaient pas correctement classifiées.
+Pour la PAN4, nous avons alors étendu la base de données d'entrainement et de validation, pour atteindre près de 50Go de données. Une machine bien plus puissante et plusieurs heures d'entrainement ont été nécessaires pour mettre en place un modèle beaucoup plus performant. Nous avons alors effectué de nouveaux tests, qui ont été passés avec succès.
+
+==== Estimation de la profondeur
+Nous sommes également en mesure de calculer la profondeur du tableau grâce à 2 programmes que nous avons implémentés avec succès.
+Le premier programme se repose sur un réseau de neurone pré-entrainé, il permet de traiter les tableaux figuratifs. À partir de la photo d'un tableau, il créé une image en 2 dimensions précisant la hauteur de chaque pixel, il s'agit d'une carte de profondeur. Cette dernière peut être visualisée comme une image classique faite de nuances de gris en choisissant par exemple 0-255 pour la fourchette des hauteurs de pixels.
+Le deuxième programme se repose sur l'analyse des intensités par régions pour estimer la profondeur des tableaux abstraits. On applique la segmentation slic à l'image pour séparer les régions. Ensuite, on calcule la moyenne des couleurs de chaque région et on remplace la couleur de tous les pixels de chaque par leur couleur moyenne, on obtient alors un effet mosaïque. Enfin, on passe l'image en noir et blanc pour construire une carte de profondeur.
+Une évolution notable de l'estimation de la profondeur des tableaux abstraits se concentre autour de l'ajout de la segmentation de l'image par région de couleur. Cela a permis de réduire considérablement le bruit au niveau de la carte de profondeur.
+
+==== Redimensionnement de la carte de profondeur
+La possibilité de redimensionner fait partie des évolutions apportées lors de la période d'intégration du projet PACT, pour une meilleure collaboration avec les autres modules. Nous redimensionnons la carte de profondeur afin que le modèle 3D puisse correspondre aux nombre de picots de la table de picots en longueur et en largeur (mais aussi en hauteur en fonction des servomoteurs).

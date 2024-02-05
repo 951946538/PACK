@@ -1,0 +1,28 @@
+# DONOT CHANGE/EDIT THIS FILE
+image: asciidoctor/docker-asciidoctor
+
+stages:
+   - build
+
+build-report:
+   # You can download the artifacts in the pipeline/jobs tab in Gitlab web UI
+   artifacts:
+      expire_in: 7 days
+      name: "Rapport-$CI_PROJECT_NAME-$(date -u +%d-%m-%Y@%Hh%MUTC)"
+      paths:
+         - rapport/Rapport-$CI_PROJECT_NAME.html
+         - rapport/Rapport-$CI_PROJECT_NAME.pdf
+         - rapport/images
+   stage: build
+   script:
+      # Log Asciidoctor Version
+      -  asciidoctor --version
+      # generate html version
+      - (cd rapport && asciidoctor  -r asciidoctor-diagram -d book -b html5  README.adoc -o Rapport-$CI_PROJECT_NAME.html)
+      # Log Asciidoctor-PDF Version
+      -  asciidoctor-pdf --version
+      # generate pdf version
+      - (cd rapport && asciidoctor-pdf  -r asciidoctor-diagram -r asciidoctor-mathematical -a mathematical-format=svg -d book -b pdf --theme pdf-theme.yml README.adoc -o Rapport-$CI_PROJECT_NAME.pdf)
+   only:
+      - main
+
